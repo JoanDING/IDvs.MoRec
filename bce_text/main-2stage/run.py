@@ -1,3 +1,4 @@
+import pdb
 import torch.optim as optim
 import re
 from pathlib import Path
@@ -25,7 +26,7 @@ def train(args, use_modal, local_rank):
     if use_modal:
         if 'roberta' in args.bert_model_load:
             Log_file.info('load roberta model...')
-            bert_model_load = '/yuanzheng/id_modal/pretrained_models/roberta/' + args.bert_model_load
+            bert_model_load = '../../pretrained_models/roberta/' + args.bert_model_load
             tokenizer = RobertaTokenizer.from_pretrained(bert_model_load)
             config = RobertaConfig.from_pretrained(bert_model_load, output_hidden_states=True)
             bert_model = RobertaModel.from_pretrained(bert_model_load, config=config)
@@ -35,13 +36,13 @@ def train(args, use_modal, local_rank):
                 args.word_embedding_dim = 1024
         elif 'opt' in args.bert_model_load:
             Log_file.info('load opt model...')
-            bert_model_load = '/yuanzheng/id_modal/pretrained_models/opt/' + args.bert_model_load
+            bert_model_load = '../../pretrained_models/opt/' + args.bert_model_load
             tokenizer = GPT2Tokenizer.from_pretrained(bert_model_load)
             config = OPTConfig.from_pretrained(bert_model_load, output_hidden_states=True)
             bert_model = OPTModel.from_pretrained(bert_model_load, config=config)
         else:
             Log_file.info('load bert model...')
-            bert_model_load = '/yuanzheng/id_modal/pretrained_models/bert/' + args.bert_model_load
+            bert_model_load = '../../pretrained_models/' + args.bert_model_load
             tokenizer = BertTokenizer.from_pretrained(bert_model_load)
             config = BertConfig.from_pretrained(bert_model_load, output_hidden_states=True)
             bert_model = BertModel.from_pretrained(bert_model_load, config=config)
@@ -204,6 +205,7 @@ def train(args, use_modal, local_rank):
                     batch_index, batch_index * args.batch_size, loss.data / batch_index, loss.data))
             if not need_break and batch_index % steps_for_test == 0:
                 Log_file.info('')
+                pdb.set_trace()
                 max_eval_value, max_epoch, early_stop_epoch, early_stop_count, need_break, need_save = \
                     run_eval(now_epoch, max_epoch, early_stop_epoch, max_eval_value, early_stop_count,
                              model, item_word_embs, users_history_for_valid, valid_pairs, 512,

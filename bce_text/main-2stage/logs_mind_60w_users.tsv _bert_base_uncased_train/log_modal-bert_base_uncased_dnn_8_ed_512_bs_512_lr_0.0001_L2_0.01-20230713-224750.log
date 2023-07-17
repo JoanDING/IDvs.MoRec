@@ -1,0 +1,69 @@
+[INFO 2023-07-13 22:47:50,265] Namespace(batch_size=512, behaviors='mind_60w_users.tsv', bert_model_load='bert_base_uncased', cold_file='None', dataset='dataset/MIND', dnn_layers=8, drop_rate=0.1, embedding_dim=512, epoch=150, fine_tune_lr=0.0, item_tower='modal', l2_weight=0.01, label_screen='modal_bs512_ed512_lr0.0001_dp0.1_L20.01_Flr0-20230713-224750', load_ckpt_name='None', local_rank=0, logging_num=16, lr=0.0001, max_seq_len=20, min_seq_len=5, mode='train', new_file='None', news='mind_60w_items.tsv', news_attributes=['title'], num_attention_heads=2, num_words_abstract=50, num_words_body=50, num_words_title=30, num_workers=12, root_data_dir='../../', testing_num=4, transformer_block=2, word_embedding_dim=768)
+[INFO 2023-07-13 22:47:50,266] load bert model...
+[INFO 2023-07-13 22:48:01,414] read news...
+[INFO 2023-07-13 22:48:22,206] read behaviors...
+[INFO 2023-07-13 22:48:22,206] ##### news number 79707 79707 (before clearing)#####
+[INFO 2023-07-13 22:48:22,206] ##### min seq len 5, max seq len 20#####
+[INFO 2023-07-13 22:48:22,206] rebuild user seqs...
+[INFO 2023-07-13 22:48:26,009] ##### pairs_num 9667540
+[INFO 2023-07-13 22:48:26,043] ##### items after clearing 79707, 79707, 79707 #####
+[INFO 2023-07-13 22:48:36,870] ##### user seqs after clearing 630235, 630235, 630235#####
+[INFO 2023-07-13 22:48:36,870] ##### train pairs 8407070 #####
+[INFO 2023-07-13 22:48:36,870] ##### validation pairs 630235 #####
+[INFO 2023-07-13 22:48:36,870] ##### test pairs 630235 #####
+[INFO 2023-07-13 22:48:40,770] combine news information...
+[INFO 2023-07-13 22:48:41,058] Bert Encoder...
+[INFO 2023-07-13 22:48:41,212] get bert output...
+[INFO 2023-07-13 22:49:02,733] build dataset...
+[INFO 2023-07-13 22:49:02,734] build DDP sampler...
+[INFO 2023-07-13 22:49:02,734] build dataloader...
+[INFO 2023-07-13 22:49:02,734] build model...
+[INFO 2023-07-13 22:49:07,325] MLP_Layers(
+  (mlp_layers): Sequential(
+    (0): Dropout(p=0.1, inplace=False)
+    (1): Linear(in_features=512, out_features=512, bias=True)
+    (2): GELU()
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Linear(in_features=512, out_features=512, bias=True)
+    (5): GELU()
+    (6): Dropout(p=0.1, inplace=False)
+    (7): Linear(in_features=512, out_features=512, bias=True)
+    (8): GELU()
+    (9): Dropout(p=0.1, inplace=False)
+    (10): Linear(in_features=512, out_features=512, bias=True)
+    (11): GELU()
+    (12): Dropout(p=0.1, inplace=False)
+    (13): Linear(in_features=512, out_features=512, bias=True)
+    (14): GELU()
+    (15): Dropout(p=0.1, inplace=False)
+    (16): Linear(in_features=512, out_features=512, bias=True)
+    (17): GELU()
+    (18): Dropout(p=0.1, inplace=False)
+    (19): Linear(in_features=512, out_features=512, bias=True)
+    (20): GELU()
+    (21): Dropout(p=0.1, inplace=False)
+    (22): Linear(in_features=512, out_features=512, bias=True)
+    (23): GELU()
+  )
+)
+[INFO 2023-07-13 22:49:07,329] ##### total_num 325175808 #####
+[INFO 2023-07-13 22:49:07,329] ##### trainable_num 325175808 #####
+[INFO 2023-07-13 22:49:07,329] 
+
+[INFO 2023-07-13 22:49:07,329] Training...
+[INFO 2023-07-13 22:49:07,329] ##### total_num 325175808 #####
+[INFO 2023-07-13 22:49:07,329] ##### trainable_num 325175808 #####
+[INFO 2023-07-13 22:49:07,329] ##### all 16421 steps #####
+[INFO 2023-07-13 22:49:07,329] ##### 16 logs/epoch; 1026 steps/log #####
+[INFO 2023-07-13 22:49:07,329] ##### 4 tests/epoch; 4105 steps/test #####
+[INFO 2023-07-13 22:49:07,329] 
+
+[INFO 2023-07-13 22:49:07,329] epoch 1 start
+[INFO 2023-07-13 22:49:07,330] 
+[INFO 2023-07-13 22:50:07,487] cnt: 1026, Ed: 525312, batch loss: 0.68489, sum loss: 702.69348
+[INFO 2023-07-13 22:51:06,544] cnt: 2052, Ed: 1050624, batch loss: 0.65659, sum loss: 1347.31873
+[INFO 2023-07-13 22:52:04,993] cnt: 3078, Ed: 1575936, batch loss: 0.62351, sum loss: 1919.14966
+[INFO 2023-07-13 22:53:03,419] cnt: 4104, Ed: 2101248, batch loss: 0.59264, sum loss: 2432.19287
+[INFO 2023-07-13 22:53:03,476] 
+[INFO 2023-07-13 22:53:03,476] Validating...
+[INFO 2023-07-13 22:53:12,005] train_methods   Hit10	nDCG10

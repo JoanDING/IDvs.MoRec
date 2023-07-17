@@ -1,0 +1,81 @@
+[INFO 2023-07-14 14:04:36,957] Namespace(batch_size=512, behaviors='mind_60w_users.tsv', bert_model_load='bert_base_uncased', cold_file='None', dataset='dataset/MIND', dnn_layers=8, drop_rate=0.1, embedding_dim=512, epoch=150, fine_tune_lr=0.0, item_tower='modal', l2_weight=0.01, label_screen='modal_bs512_ed512_lr0.0001_dp0.1_L20.01_Flr0-20230714-140436', load_ckpt_name='None', local_rank=0, logging_num=16, lr=0.0001, max_seq_len=20, min_seq_len=5, mode='train', new_file='None', news='mind_60w_items.tsv', news_attributes=['title'], num_attention_heads=2, num_words_abstract=50, num_words_body=50, num_words_title=30, num_workers=12, root_data_dir='../../', testing_num=1, transformer_block=2, word_embedding_dim=768)
+[INFO 2023-07-14 14:04:36,957] load bert model...
+[INFO 2023-07-14 14:04:37,938] read news...
+[INFO 2023-07-14 14:04:58,049] read behaviors...
+[INFO 2023-07-14 14:04:58,049] ##### news number 79707 79707 (before clearing)#####
+[INFO 2023-07-14 14:04:58,049] ##### min seq len 5, max seq len 20#####
+[INFO 2023-07-14 14:04:58,049] rebuild user seqs...
+[INFO 2023-07-14 14:05:01,774] ##### pairs_num 9667540
+[INFO 2023-07-14 14:05:01,809] ##### items after clearing 79707, 79707, 79707 #####
+[INFO 2023-07-14 14:05:12,722] ##### user seqs after clearing 630235, 630235, 630235#####
+[INFO 2023-07-14 14:05:12,722] ##### train pairs 8407070 #####
+[INFO 2023-07-14 14:05:12,723] ##### validation pairs 630235 #####
+[INFO 2023-07-14 14:05:12,723] ##### test pairs 630235 #####
+[INFO 2023-07-14 14:05:17,094] combine news information...
+[INFO 2023-07-14 14:05:17,398] Bert Encoder...
+[INFO 2023-07-14 14:05:17,557] get bert output...
+[INFO 2023-07-14 14:05:39,122] build dataset...
+[INFO 2023-07-14 14:05:39,123] build DDP sampler...
+[INFO 2023-07-14 14:05:39,123] build dataloader...
+[INFO 2023-07-14 14:05:39,123] build model...
+[INFO 2023-07-14 14:05:43,742] MLP_Layers(
+  (mlp_layers): Sequential(
+    (0): Dropout(p=0.1, inplace=False)
+    (1): Linear(in_features=512, out_features=512, bias=True)
+    (2): GELU()
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Linear(in_features=512, out_features=512, bias=True)
+    (5): GELU()
+    (6): Dropout(p=0.1, inplace=False)
+    (7): Linear(in_features=512, out_features=512, bias=True)
+    (8): GELU()
+    (9): Dropout(p=0.1, inplace=False)
+    (10): Linear(in_features=512, out_features=512, bias=True)
+    (11): GELU()
+    (12): Dropout(p=0.1, inplace=False)
+    (13): Linear(in_features=512, out_features=512, bias=True)
+    (14): GELU()
+    (15): Dropout(p=0.1, inplace=False)
+    (16): Linear(in_features=512, out_features=512, bias=True)
+    (17): GELU()
+    (18): Dropout(p=0.1, inplace=False)
+    (19): Linear(in_features=512, out_features=512, bias=True)
+    (20): GELU()
+    (21): Dropout(p=0.1, inplace=False)
+    (22): Linear(in_features=512, out_features=512, bias=True)
+    (23): GELU()
+  )
+)
+[INFO 2023-07-14 14:05:43,746] ##### total_num 325175808 #####
+[INFO 2023-07-14 14:05:43,746] ##### trainable_num 325175808 #####
+[INFO 2023-07-14 14:05:43,746] 
+
+[INFO 2023-07-14 14:05:43,746] Training...
+[INFO 2023-07-14 14:05:43,746] ##### total_num 325175808 #####
+[INFO 2023-07-14 14:05:43,746] ##### trainable_num 325175808 #####
+[INFO 2023-07-14 14:05:43,746] ##### all 16421 steps #####
+[INFO 2023-07-14 14:05:43,746] ##### 16 logs/epoch; 1026 steps/log #####
+[INFO 2023-07-14 14:05:43,746] ##### 1 tests/epoch; 16421 steps/test #####
+[INFO 2023-07-14 14:05:43,746] 
+
+[INFO 2023-07-14 14:05:43,746] epoch 1 start
+[INFO 2023-07-14 14:05:43,746] 
+[INFO 2023-07-14 14:06:43,695] cnt: 1026, Ed: 525312, batch loss: 0.68489, sum loss: 702.69348
+[INFO 2023-07-14 14:07:42,179] cnt: 2052, Ed: 1050624, batch loss: 0.65659, sum loss: 1347.31873
+[INFO 2023-07-14 14:08:40,706] cnt: 3078, Ed: 1575936, batch loss: 0.62351, sum loss: 1919.14966
+[INFO 2023-07-14 14:09:39,219] cnt: 4104, Ed: 2101248, batch loss: 0.59264, sum loss: 2432.19287
+[INFO 2023-07-14 14:10:37,688] cnt: 5130, Ed: 2626560, batch loss: 0.56616, sum loss: 2904.41846
+[INFO 2023-07-14 14:11:36,359] cnt: 6156, Ed: 3151872, batch loss: 0.54359, sum loss: 3346.35425
+[INFO 2023-07-14 14:12:35,791] cnt: 7182, Ed: 3677184, batch loss: 0.52420, sum loss: 3764.81982
+[INFO 2023-07-14 14:13:34,353] cnt: 8208, Ed: 4202496, batch loss: 0.50768, sum loss: 4166.99756
+[INFO 2023-07-14 14:14:32,963] cnt: 9234, Ed: 4727808, batch loss: 0.49335, sum loss: 4555.59961
+[INFO 2023-07-14 14:15:31,543] cnt: 10260, Ed: 5253120, batch loss: 0.48051, sum loss: 4930.02100
+[INFO 2023-07-14 14:16:29,951] cnt: 11286, Ed: 5778432, batch loss: 0.46929, sum loss: 5296.45752
+[INFO 2023-07-14 14:17:28,274] cnt: 12312, Ed: 6303744, batch loss: 0.45911, sum loss: 5652.60791
+[INFO 2023-07-14 14:18:26,746] cnt: 13338, Ed: 6829056, batch loss: 0.45000, sum loss: 6002.11768
+[INFO 2023-07-14 14:19:25,345] cnt: 14364, Ed: 7354368, batch loss: 0.44165, sum loss: 6343.87842
+[INFO 2023-07-14 14:20:23,960] cnt: 15390, Ed: 7879680, batch loss: 0.43401, sum loss: 6679.43213
+[INFO 2023-07-14 14:21:22,494] cnt: 16416, Ed: 8404992, batch loss: 0.42699, sum loss: 7009.52490
+[INFO 2023-07-14 14:21:22,743] 
+[INFO 2023-07-14 14:34:09,401] Validating...
+[INFO 2023-07-14 14:34:18,509] train_methods   Hit10	nDCG10
